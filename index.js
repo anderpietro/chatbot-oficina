@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const Groq = require('groq-sdk');
+const path = require('path');
 
 const app = express();
 app.use(cors({ origin: '*' }));
@@ -48,7 +49,7 @@ app.post('/chat', async (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  res.json({ status: 'AutoMaster Chatbot rodando!' });
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 const PORT = process.env.PORT || 3000;
