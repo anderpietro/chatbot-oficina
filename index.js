@@ -24,7 +24,7 @@ Seu papel:
 
 Regras:
 - Seja simpático e use linguagem informal mas profissional
-- Respostas curtas e objetivas (máximo 3 linhas)
+- Respostas curtas e objetivas máximo 3 linhas
 - Use emojis com moderação
 - Nunca invente informações
 - Responda sempre em português brasileiro`;
@@ -44,7 +44,8 @@ app.post('/chat', async (req, res) => {
   } catch (error) {
     console.error('ERRO GROQ:', error.message);
     res.status(500).json({ error: error.message });
-}
+  }
+});
 
 app.get('/', (req, res) => {
   res.json({ status: 'AutoMaster Chatbot rodando!' });
