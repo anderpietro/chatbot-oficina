@@ -42,9 +42,9 @@ app.post('/chat', async (req, res) => {
     });
     res.json({ reply: response.choices[0].message.content });
   } catch (error) {
-    res.status(500).json({ error: 'Erro ao processar mensagem' });
-  }
-});
+    console.error('ERRO GROQ:', error.message);
+    res.status(500).json({ error: error.message });
+}
 
 app.get('/', (req, res) => {
   res.json({ status: 'AutoMaster Chatbot rodando!' });
